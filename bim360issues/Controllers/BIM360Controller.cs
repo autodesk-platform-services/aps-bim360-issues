@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////
 // Copyright (c) Autodesk, Inc. All rights reserved
-// Written by Forge Partner Development
+// Written by APS Partner Development
 //
 // Permission to use, copy, modify, and distribute this software in
 // object code form for any purpose and without fee is hereby granted,
@@ -32,7 +32,7 @@ namespace bim360issues.Controllers
         private const string BASE_URL = "https://developer.api.autodesk.com";
 
         [HttpGet]
-        [Route("api/forge/bim360/container")]
+        [Route("api/aps/bim360/container")]
         public async Task<dynamic> GetContainerAsync(string href)
         {
             string[] idParams = href.Split('/');
@@ -66,7 +66,7 @@ namespace bim360issues.Controllers
         public async Task<IRestResponse> GetUsers(string accountId)
         {
             TwoLeggedApi oauth = new TwoLeggedApi();
-            dynamic bearer = await oauth.AuthenticateAsync(Credentials.GetAppSetting("FORGE_CLIENT_ID"), Credentials.GetAppSetting("FORGE_CLIENT_SECRET"), "client_credentials", new Scope[] { Scope.AccountRead });
+            dynamic bearer = await oauth.AuthenticateAsync(Credentials.GetAppSetting("APS_CLIENT_ID"), Credentials.GetAppSetting("APS_CLIENT_SECRET"), "client_credentials", new Scope[] { Scope.AccountRead });
 
             RestClient client = new RestClient(BASE_URL);
             RestRequest request = new RestRequest("/hq/v1/accounts/{account_id}/users", RestSharp.Method.GET);
@@ -76,7 +76,7 @@ namespace bim360issues.Controllers
         }
 
         [HttpGet]
-        [Route("api/forge/bim360/account/{accountId}/container/{containerId}/issues/{urn}")]
+        [Route("api/aps/bim360/account/{accountId}/container/{containerId}/issues/{urn}")]
         public async Task<JArray> GetDocumentIssuesAsync(string accountId, string containerId, string urn)
         {
             IRestResponse documentIssuesResponse = await GetIssuesAsync(containerId, "quality-issues", urn);
@@ -129,7 +129,7 @@ namespace bim360issues.Controllers
 
 
         [HttpPost]
-        [Route("api/forge/bim360/container/{containerId}/issues/{urn}")]
+        [Route("api/aps/bim360/container/{containerId}/issues/{urn}")]
         public async Task<IActionResult> CreateDocumentIssuesAsync(string containerId, string urn, [FromBody]JObject data)
         {
             // for this sample, let's create Design issues

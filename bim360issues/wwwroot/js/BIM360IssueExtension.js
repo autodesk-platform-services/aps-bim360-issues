@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////
 // Copyright (c) Autodesk, Inc. All rights reserved
-// Written by Forge Partner Development
+// Written by APS Partner Development
 //
 // Permission to use, copy, modify, and distribute this software in
 // object code form for any purpose and without fee is hereby granted,
@@ -157,7 +157,7 @@ BIM360IssueExtension.prototype.createIssue = function () {
     _this.getContainerId(selected.project, selected.urn, function () {
       var urn = btoa(target_urn.split('?')[0]);
       jQuery.post({
-        url: '/api/forge/bim360/container/' + _this.containerId + '/issues/' + urn,
+        url: '/api/aps/bim360/container/' + _this.containerId + '/issues/' + urn,
         contentType: 'application/json',
         data: JSON.stringify({ data: data }),
         success: function (res) {
@@ -222,7 +222,7 @@ BIM360IssueExtension.prototype.getContainerId = function (href, urn, cb) {
     _this.panel.addProperty('Loading...', '');
   }
   jQuery.ajax({
-    url: '/api/forge/bim360/container?href=' + href,
+    url: '/api/aps/bim360/container?href=' + href,
     success: function (res) {
       _this.containerId = res.containerId;
       _this.hubId = res.hubId;
@@ -236,7 +236,7 @@ BIM360IssueExtension.prototype.getIssues = function (accountId, containerId, urn
   urn = urn.split('?')[0]
   urn = btoa(urn);
 
-  jQuery.get('/api/forge/bim360/account/' + accountId + '/container/' + containerId + '/issues/' + urn, function (data) {
+  jQuery.get('/api/aps/bim360/account/' + accountId + '/container/' + containerId + '/issues/' + urn, function (data) {
     _this.issues = data;
 
     // do we have issues on this document?
