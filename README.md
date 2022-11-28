@@ -32,7 +32,7 @@ This sample implements the [Retrieve Container ID](https://forge.autodesk.com/en
 ## Prerequisites
 
 1. **BIM 360 Account**: must be Account Admin to add the app integration. [Learn about provisioning](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps).
-2. **Forge Account**: Learn how to create a Forge Account, activate subscription and create an app at [this tutorial](http://learnforge.autodesk.io/#/account/). 
+2. **APS Account**: Learn how to create a APS Account, activate subscription and create an app at [this tutorial](http://learnforge.autodesk.io/#/account/). 
 3. **Visual Studio**: Either Community 2017+ (Windows) or Code (Windows, MacOS).
 4. **.NET Core** basic knowledge with C#
 5. **JavaScript** basic knowledge with **jQuery**
@@ -55,15 +55,15 @@ Open the folder, at the bottom-right, select **Yes** and **Restore**. This resto
 
 ![](bim360issues/wwwroot/img/readme/visual_code_restore.png)
 
-At the `.vscode\launch.json`, find the env vars and add your Forge Client ID, Secret and callback URL. Also define the `ASPNETCORE_URLS` variable. The end result should be as shown below:
+At the `.vscode\launch.json`, find the env vars and add your APS Client ID, Secret and callback URL. Also define the `ASPNETCORE_URLS` variable. The end result should be as shown below:
 
 ```json
 "env": {
     "ASPNETCORE_ENVIRONMENT": "Development",
     "ASPNETCORE_URLS" : "http://localhost:3000",
-    "FORGE_CLIENT_ID": "your id here",
-    "FORGE_CLIENT_SECRET": "your secret here",
-    "FORGE_CALLBACK_URL": "http://localhost:3000/api/forge/callback/oauth",
+    "APS_CLIENT_ID": "your id here",
+    "APS_CLIENT_SECRET": "your secret here",
+    "APS_CALLBACK_URL": "http://localhost:3000/api/aps/callback/oauth",
 },
 ```
 
@@ -71,7 +71,7 @@ Run the app. Open `http://localhost:3000` to view your files. It may be required
 
 ## Deployment
 
-To deploy this application to Heroku, the **Callback URL** for Forge must use your `.herokuapp.com` address. After clicking on the button below, at the Heroku Create New App page, set your Client ID, Secret and Callback URL for Forge.
+To deploy this application to Heroku, the **Callback URL** for APS must use your `.herokuapp.com` address. After clicking on the button below, at the Heroku Create New App page, set your Client ID, Secret and Callback URL for APS.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
@@ -93,7 +93,7 @@ Tutorials:
 
 Blogs:
 
-- [Forge Blog](https://forge.autodesk.com/categories/bim-360-api)
+- [APS Blog](https://forge.autodesk.com/categories/bim-360-api)
 - [Field of View](https://fieldofviewblog.wordpress.com/), a BIM focused blog
 
 Other samples:
@@ -106,7 +106,7 @@ This sample uses .NET Core and works fine on both Windows and MacOS, see [this t
 
 ### Troubleshooting
 
-1. **Cannot see my BIM 360 projects**: Make sure to provision the Forge App Client ID within the BIM 360 Account, [learn more here](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps). This requires the Account Admin permission.
+1. **Cannot see my BIM 360 projects**: Make sure to provision the APS App Client ID within the BIM 360 Account, [learn more here](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps). This requires the Account Admin permission.
 
 2. **error setting certificate verify locations** error: may happen on Windows, use the following: `git config --global http.sslverify "false"`
 
@@ -116,4 +116,4 @@ This sample is licensed under the terms of the [MIT License](http://opensource.o
 
 ## Written by
 
-Augusto Goncalves [@augustomaia](https://twitter.com/augustomaia), [Forge Partner Development](http://forge.autodesk.com)
+Augusto Goncalves [@augustomaia](https://twitter.com/augustomaia), [APS Partner Development](http://forge.autodesk.com)
