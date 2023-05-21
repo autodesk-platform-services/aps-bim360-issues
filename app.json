@@ -1,7 +1,7 @@
 {
-    "name": "data.management-csharp-bim360.issues",
-    "description": "BIM 360 Issues & Markups",
-    "repository": "https://github.com/Autodesk-Forge/bim360-csharp-issues",
+    "name": "bim360 pushpin issues",
+    "description": "BIM 360 Pushpin Issues ",
+    "repository": "",
     "logo": "https://avatars0.githubusercontent.com/u/8017462?v=3&s=200",
     "keywords": [
         "autodesk",
@@ -20,7 +20,7 @@
             "value": "https://<<YOUR HEROKU APP NAME HERE>>.herokuapp.com/api/aps/callback/oauth"
         }
     },
-    "website": "https://developer.autodesk.com/",
+    "website": "https://aps.autodesk.com/",
     "success_url": "/",
     "buildpacks": [
         {
