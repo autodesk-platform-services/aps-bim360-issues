@@ -6,9 +6,9 @@
 
 [![Authentication v2](https://img.shields.io/badge/Authentication-v2-green.svg)](https://aps.autodesk.com/en/docs/oauth/v2/overview/)
 [![Data Management API](https://img.shields.io/badge/Data%20Management-v1-green.svg)](https://aps.autodesk.com/en/docs/data/v2/overview/)
-[![BIM360 Admin API](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/admin-v1-projects-projectId-users-GET/)
+[![BIM360 Admin API](https://img.shields.io/badge/BIM360%20Admin%20API-v1-green.svg)](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/admin-v1-projects-projectId-users-GET/)
 [![Viewer 7](https://img.shields.io/badge/Viewer-v7-green.svg)](https://aps.autodesk.com/en/docs/viewer/v7/overview/)
-[![BIM 360 Issue API v2](https://img.shields.io/badge/BIM%20360%20Issue%20API%20V2-v2-green.svg)](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/issues-v2-users-me-GET/)
+[![BIM 360 Issue API](https://img.shields.io/badge/BIM%20360%20Issue%20API%20V2-v2-green.svg)](https://aps.autodesk.com/en/docs/bim360/v1/reference/http/issues-v2-users-me-GET/)
 
 ![Intermediate](https://img.shields.io/badge/Level-Intermediate-blue.svg)
 
@@ -51,18 +51,11 @@ Right-click on the project, then go to **Debug**. Adjust the settings as shown b
 
 Open the folder, at the bottom-right, select **Yes** and **Restore**. This restores the packages (e.g. Autodesk.Forge) and creates the launch.json file. See *Tips & Tricks* for .NET Core on MacOS.
 
-![](bim360issues/wwwroot/img/readme/visual_code_restore.png)
-
-At the `.vscode\launch.json`, find the env vars and add your APS Client ID, Secret and callback URL. Also define the `ASPNETCORE_URLS` variable. The end result should be as shown below:
-
-```json
-"env": {
-    "ASPNETCORE_ENVIRONMENT": "Development",
-    "ASPNETCORE_URLS" : "http://localhost:3000",
-    "APS_CLIENT_ID": "your id here",
-    "APS_CLIENT_SECRET": "your secret here",
-    "APS_CALLBACK_URL": "http://localhost:3000/api/aps/callback/oauth",
-},
+In [.env](./env) file, input the information below 
+```text 
+    APS_CLIENT_ID = "your id here",
+    APS_CLIENT_SECRET =  "your secret here",
+    APS_CALLBACK_URL = "http://localhost:3000/api/auth/callback"
 ```
 
 Run the app. Open `http://localhost:3000` to view the documents on BIM360. It may be required to **Enable my BIM 360 Account** (see app top-right). 
@@ -114,6 +107,7 @@ This sample is licensed under the terms of the [MIT License](http://opensource.o
 ## Written by
 
 Augusto Goncalves [@augustomaia](https://twitter.com/augustomaia)
-Migrated by [Xiaodong Liang](https://twitter.com/coldwood).
+
+Migrated by Xiaodong Liang[@coldwood](https://twitter.com/coldwood).
 
 [APS Partner Development](http://aps.autodesk.com)
